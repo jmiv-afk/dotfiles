@@ -1,0 +1,11 @@
+[user]
+	email = james.michael@colorado.edu
+	name = jmichael16
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache --timeout=3600
+[url "git@github.com:"]
+	insteadOf = https://github.com/
