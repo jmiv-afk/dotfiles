@@ -2,7 +2,7 @@
 	email = james.michael@colorado.edu
 	name = jmichael16
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main
 [credential]
