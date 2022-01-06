@@ -1,29 +1,35 @@
 " .VIMRC vim Configuration
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
+" Declare the list of plugins.
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+" We recommend updating the parsers on update
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 " for Vundle:
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'universal-ctags/ctags'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
-if has('nvim')
-  Plugin 'iamcco/markdown-preview.nvim'
-endif
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin on           " required
+"set nocompatible              " be iMproved, required
+"filetype off                  " required
+"
+"call plug#begin()
+"" alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
+"
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'universal-ctags/ctags'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
+"
+"if has('nvim')
+"  Plugin 'iamcco/markdown-preview.nvim'
+"endif
+"
+"" All of your Plugins must be added before the following line
+"call plug#end()            " required
+"filetype plugin on           " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
 "
