@@ -51,12 +51,15 @@ exec_always xinput set-prop "Logitech G Pro" "libinput Accel Speed" -0.99
 floating_minimum_size -1 x 500
 floating_maximum_size -1 x 500
 
-#exec_always --no-startup-id autorandr --change 
-
 # FEH: Background image - this can be changed permanently by executing:
 #	the hidden file ~/.fehbg will keep the filepath for use later
+#	and MONITOR SETTINGS:
+set $left_monitor DP-4.8
+set $right_monitor DP-2
+exec_always xrandr --output $left_monitor --rotate left --left-of $right_monitor --output DP-2 --rotate normal  
 exec_always sh ~/.fehbg
-  
+# Picom (for transparency)
+exec_always --no-startup-id picom &
 
 # FONTS: Specifies font for window titles and statusbar
 # 	(statusbar font can be specified in the bar{} section below)
@@ -78,7 +81,7 @@ hide_edge_borders smart_no_gaps
 # WIFI COMMANDS:
 exec --no-startup-id nm-applet --sm-disable
 
-# MONITOR COMMANDS:
+# (old laptop, pre-sway, cannot locate script) MONITOR COMMANDS:
 #exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
 
 # VOLUME COMMANDS: 
@@ -271,7 +274,7 @@ bindsym $mod+greater move workspace to output right
 
 # I3-BAR: Displays a workspace bar using the system information i3status finds
 bar {
-        status_command i3blocks -c ~/.config/i3blocks/config
+  status_command i3blocks -c ~/.config/i3blocks/config
 	font pango:DejaVu Sans Mono, Font Awesome 15
 	position top 
 	strip_workspace_numbers yes
