@@ -42,19 +42,20 @@ set $mod Mod4
 
 
 # MOUSE SETTINGS
-exec_always xinput set-prop "Elan Trackpoint" "libinput Accel Speed" -0.05
-exec_always xinput set-prop "Elan Touchpad" "libinput Accel Speed" 0.35
-exec_always xinput set-prop "Corsair Corsair Gaming HARPOON RGB Mouse Mouse" "libinput Accel Speed" -0.99
+#exec_always xinput set-prop "Elan Trackpoint" "libinput Accel Speed" -0.05
+#exec_always xinput set-prop "Elan Touchpad" "libinput Accel Speed" 0.35
+#exec_always xinput set-prop "Corsair Corsair Gaming HARPOON RGB Mouse Mouse" "libinput Accel Speed" -0.99
+exec_always xinput set-prop "Logitech G Pro" "libinput Accel Speed" -0.99
 
 # FLOATING WINDOWS
 floating_minimum_size -1 x 500
 floating_maximum_size -1 x 500
 
-exec_always --no-startup-id autorandr --change 
+#exec_always --no-startup-id autorandr --change 
 
 # FEH: Background image - this can be changed permanently by executing:
 #	the hidden file ~/.fehbg will keep the filepath for use later
-#exec_always sh ~/.fehbg
+exec_always sh ~/.fehbg
   
 
 # FONTS: Specifies font for window titles and statusbar
@@ -78,7 +79,7 @@ hide_edge_borders smart_no_gaps
 exec --no-startup-id nm-applet --sm-disable
 
 # MONITOR COMMANDS:
-exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
+#exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
 
 # VOLUME COMMANDS: 
 # ===> note: pavucontrol (GUI) can be run via rofi to handle volume controls
