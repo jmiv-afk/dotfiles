@@ -1,0 +1,295 @@
+#__________________________________________________________________________________
+#
+# I3 CONFIGURATION FILE
+# 
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# ___________________________________________________________________________________
+# 
+# Developed by Jake Michael with the help of the OSG's (Open Source Gods)
+#
+#--------------------------------------
+# COLORS: terminal.sexy => Ashes dark 
+#--------------------------------------
+
+# black
+set $color00	#1c2023
+set $color08	#747c84
+# red
+set $color01	#c7ae95
+set $color09	#c7ae95
+# green
+set $color02	#95c7ae
+set $color10	#95c7ae
+# yellow
+set $color03	#aec795
+set $color11	#aec795
+# blue
+set $color04	#ae95c7
+set $color12	#ae95c7
+# magenta
+set $color05	#c795ae
+set $color13	#c795ae
+#cyan
+set $color06	#95aec7
+set $color14	#95aec7
+# white
+set $color07	#c7ccd1
+set $color15	#f3f4f5
+
+
+# MOD KEY: Set to WINDOWS button
+set $mod Mod4
+
+
+# MOUSE SETTINGS
+exec_always xinput set-prop "Elan Trackpoint" "libinput Accel Speed" -0.05
+exec_always xinput set-prop "Elan Touchpad" "libinput Accel Speed" 0.35
+exec_always xinput set-prop "Corsair Corsair Gaming HARPOON RGB Mouse Mouse" "libinput Accel Speed" -0.99
+
+# FLOATING WINDOWS
+floating_minimum_size -1 x 500
+floating_maximum_size -1 x 500
+
+exec_always --no-startup-id autorandr --change 
+
+# FEH: Background image - this can be changed permanently by executing:
+#	the hidden file ~/.fehbg will keep the filepath for use later
+#exec_always sh ~/.fehbg
+  
+
+# FONTS: Specifies font for window titles and statusbar
+# 	(statusbar font can be specified in the bar{} section below)
+font pango:DejaVu Sans Mono 18 
+#font pango:monospace 8 (also an option -- widely used)
+
+
+# TERMINAL:
+bindsym $mod+Return exec urxvt
+
+# GAPS: to enable i3 gaps
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 3
+smart_gaps on
+smart_borders on
+hide_edge_borders smart_no_gaps
+
+# WIFI COMMANDS:
+exec --no-startup-id nm-applet --sm-disable
+
+# MONITOR COMMANDS:
+exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
+
+# VOLUME COMMANDS: 
+# ===> note: pavucontrol (GUI) can be run via rofi to handle volume controls
+exec --no-startup-id exec "/usr/bin/pulseaudio --start"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#------  (OLD VOLUME COMMANDS) ----------------------------------------------------------------------------------------------
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` +5%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume `pacmd list-sinks | awk '/* index:/{print $3}'` -5%
+#set $sink 'pactl list short sinks | grep RUNNING | cut -f1'
+#bindsym XF86AudioLowerVolume exec "amixer -q -D pulse sset Master 5%- unmute" 
+#bindsym XF86AudioRaiseVolume exec "amixer-q -D pulse sset Master 5%+ unmute" 
+#bindsym XF86AudioMute exec "amixer -q -D pulse sset Master toggle"
+#----------------------------------------------------------------------------------------------------------------------------
+
+
+# BACKLIGHT COMMANDS: (uses home brewed bash script)
+bindsym XF86MonBrightnessUp exec --no-startup-id /home/jmiv/.jm_scripts/jm_backlight/bright_up.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id /home/jmiv/.jm_scripts/jm_backlight/bright_down.sh
+
+
+# WINDOW DRAG: Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+
+# KILL WINDOW:
+bindsym $mod+Shift+q kill
+
+
+# ROFI: A program launcher (instead of dmenu)
+# and COMPTON: a Xorg compositor for i3
+bindsym $mod+d exec rofi -show run -lines 5 -eh 1 -width 30 -padding 1000 -opacity "10" -bw 0 -bc "$color00" -bg "$color00" -fg "$color15" -hlbg "$color06" -columns 1 -font "dejavu sans mono 18" -hlfg "$color00"
+# the below command was put in xinitrc instead
+exec_always --no-startup-id "compton -b --config ~/.config/picom/picom.conf"
+# --backend glx --glx-no-stencil --paint-on-overlay --vsync opengl-swc --sw-opti --xrender-sync"
+
+#--opacity-rule '100:window_type = "dock" && class_g = 13bar"' --config ~/.config/compton.conf -b
+# -------- OLD DMENU: --------------
+#bindsym $mod+d exec dmenu_run
+#-----------------------------------
+
+# SETTING FRAME COLORS:
+# colors defined at the top of script
+# class					            border		backgr.		text		split
+client.focused				      $color07	$color00	$color00	$color00
+client.focused_inactive			$color07	$color07	$color00	$color07
+client.unfocused			      $color07	$color07	$color00	$color07
+client.urgent				        $color05	$color05	$color05	$color00
+
+
+# COMMANDS RELOAD CONFIG, RESTART, EXIT
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# CHANGE CURSOR FOCUS POINT
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+z split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws01 "1:I  "
+set $ws02 "2:II "
+set $ws03 "3:III"
+set $ws04 "4:IV "
+set $ws05 "5:V  "
+set $ws06 "6:VI "
+set $ws07 "7:VII"
+set $ws08 "8:VIII"
+set $ws09 "9:IX "
+set $ws10 "10:X "
+
+# set which workspaces display on which screens
+workspace $ws01 output primary 
+workspace $ws02 output primary 
+workspace $ws03 output primary
+workspace $ws04 output secondary 
+workspace $ws05 output secondary 
+workspace $ws06 output secondary 
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws01
+bindsym $mod+2 workspace $ws02
+bindsym $mod+3 workspace $ws03
+bindsym $mod+4 workspace $ws04
+bindsym $mod+5 workspace $ws05
+bindsym $mod+6 workspace $ws06
+bindsym $mod+7 workspace $ws07
+bindsym $mod+8 workspace $ws08
+bindsym $mod+9 workspace $ws09
+bindsym $mod+0 workspace $ws10
+
+# assign [class="URxvt"] $ws1
+# assign [class="firefox"] $ws02
+# assign [class="Google-chrome"] $ws03
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws01
+bindsym $mod+Shift+2 move container to workspace $ws02
+bindsym $mod+Shift+3 move container to workspace $ws03
+bindsym $mod+Shift+4 move container to workspace $ws04
+bindsym $mod+Shift+5 move container to workspace $ws05
+bindsym $mod+Shift+6 move container to workspace $ws06
+bindsym $mod+Shift+7 move container to workspace $ws07
+bindsym $mod+Shift+8 move container to workspace $ws08
+bindsym $mod+Shift+9 move container to workspace $ws09
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+# RESIZING WINDOWS (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+bindsym $mod+less move workspace to output left
+bindsym $mod+greater move workspace to output right
+
+# I3-BAR: Displays a workspace bar using the system information i3status finds
+bar {
+        status_command i3blocks -c ~/.config/i3blocks/config
+	font pango:DejaVu Sans Mono, Font Awesome 15
+	position top 
+	strip_workspace_numbers yes
+	colors {
+	      separator $color15
+              background $color00
+              statusline $color06
+	      #		       	        border  	background   	text
+              focused_workspace  $color00 	$color06    	$color15
+              active_workspace   $color00 	$color00    	$color15
+              inactive_workspace $color00 	$color00    	$color15
+              urgent_workspace   $color00 	$color05    	$color15
+
+	}
+	
+	#enable transparency:
+	#tray_output primary
+}
+
+for_window [window_role="About"] floating enable
+for_window [class="Simplicity Studio \342\204\242"] floating enable
+
