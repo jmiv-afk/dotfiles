@@ -64,7 +64,7 @@ font pango:DejaVu Sans Mono 18
 
 
 # TERMINAL:
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # GAPS: to enable i3 gaps
 for_window [class=".*"] border pixel 0
@@ -191,16 +191,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws01 "1:I  "
-set $ws02 "2:II "
-set $ws03 "3:III"
-set $ws04 "4:IV "
-set $ws05 "5:V  "
-set $ws06 "6:VI "
-set $ws07 "7:VII"
-set $ws08 "8:VIII"
-set $ws09 "9:IX "
-set $ws10 "10:X "
+set $ws01 "1"
+set $ws02 "2"
+set $ws03 "3"
+set $ws04 "4"
+set $ws05 "5"
+set $ws06 "6"
+set $ws07 "7"
+set $ws08 "8"
+set $ws09 "9"
+set $ws10 "10"
 
 # set which workspaces display on which screens
 workspace $ws01 output primary 
