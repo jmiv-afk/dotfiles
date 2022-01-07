@@ -291,6 +291,8 @@ bar {
 	#tray_output primary
 }
 
+# WINDOW PROPERTIES / SETTINGS
 for_window [window_role="About"] floating enable
 for_window [class="Simplicity Studio \342\204\242"] floating enable
+for_window [title="^zoom$" class="[zoom]*"] floating enable
 
