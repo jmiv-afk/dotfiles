@@ -112,18 +112,12 @@ floating_modifier $mod
 # KILL WINDOW:
 bindsym $mod+Shift+q kill
 
+# LOCK WINDOW:
+bindsym $mod+Escape exec i3lock -c 000000
 
 # ROFI: A program launcher (instead of dmenu)
 # and COMPTON: a Xorg compositor for i3
-bindsym $mod+d exec rofi -show run -lines 5 -eh 1 -width 30 -padding 1000 -opacity "10" -bw 0 -bc "$color00" -bg "$color00" -fg "$color15" -hlbg "$color06" -columns 1 -font "dejavu sans mono 18" -hlfg "$color00"
-# the below command was put in xinitrc instead
-exec_always --no-startup-id "compton -b --config ~/.config/picom/picom.conf"
-# --backend glx --glx-no-stencil --paint-on-overlay --vsync opengl-swc --sw-opti --xrender-sync"
-
-#--opacity-rule '100:window_type = "dock" && class_g = 13bar"' --config ~/.config/compton.conf -b
-# -------- OLD DMENU: --------------
-#bindsym $mod+d exec dmenu_run
-#-----------------------------------
+bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -bash  -ic "{cmd} && read"'
 
 # SETTING FRAME COLORS:
 # colors defined at the top of script
@@ -210,9 +204,12 @@ set $ws10 "10"
 workspace $ws01 output primary 
 workspace $ws02 output primary 
 workspace $ws03 output primary
-workspace $ws04 output secondary 
+workspace $ws04 output primary  
 workspace $ws05 output secondary 
-workspace $ws06 output secondary 
+workspace $ws06 output secondary
+workspace $ws07 output secondary
+workspace $ws08 output secondary
+workspace $ws09 output secondary
 
 
 # switch to workspace
@@ -280,13 +277,13 @@ bar {
 	strip_workspace_numbers yes
 	colors {
 	      separator $color15
-              background $color00
-              statusline $color06
-	      #		       	        border  	background   	text
-              focused_workspace  $color00 	$color06    	$color15
-              active_workspace   $color00 	$color00    	$color15
-              inactive_workspace $color00 	$color00    	$color15
-              urgent_workspace   $color00 	$color05    	$color15
+        background $color00
+        statusline $color06
+        # item    	        border  	background   	text
+        focused_workspace  $color00 	$color06    	$color15
+        active_workspace   $color00 	$color00    	$color15
+        inactive_workspace $color00 	$color00    	$color15
+        urgent_workspace   $color00 	$color05    	$color15
 
 	}
 	
