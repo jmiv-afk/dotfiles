@@ -20,11 +20,13 @@ export PS1="[\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;221m\]\u\[$(tput sgr0)\
 
 export set PATH=$PATH:/home/jmiv/bin
 export set EDITOR=nvim
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # aliases
 alias python='python3'
 alias vim="nvim"
 alias vi="nvim"
 alias rm="echo 'This is not the command you are looking for'; false"
+alias ssh='TERM=xterm-256color ssh -x'
 
 neofetch
