@@ -45,7 +45,7 @@ set $mod Mod4
 #exec_always xinput set-prop "Elan Trackpoint" "libinput Accel Speed" -0.05
 #exec_always xinput set-prop "Elan Touchpad" "libinput Accel Speed" 0.35
 #exec_always xinput set-prop "Corsair Corsair Gaming HARPOON RGB Mouse Mouse" "libinput Accel Speed" -0.99
-exec_always xinput set-prop "Logitech G Pro" "libinput Accel Speed" -0.99
+ exec_always xinput set-prop "pointer:Logitech G Pro " "libinput Accel Speed" -0.5
 
 # FLOATING WINDOWS
 floating_minimum_size -1 x 500
@@ -108,7 +108,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id /home/jmiv/.jm_scripts/jm_bac
 # WINDOW DRAG: Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-
 # KILL WINDOW:
 bindsym $mod+Shift+q kill
 
@@ -118,6 +117,12 @@ bindsym $mod+Escape exec i3lock -c 000000
 # ROFI: A program launcher (instead of dmenu)
 # and COMPTON: a Xorg compositor for i3
 bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -bash  -ic "{cmd} && read"'
+
+# SCREENSHOTS (using scrot and xclip):   
+# Focused window screenshot
+bindsym --release $mod+Shift+Print exec --no-startup-id scrot -u 'snip_%Y%m%d_%H%M%S.png' -e 'mv $f ~/screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`'
+# OSX-like area selection screenshots
+bindsym --release $mod+Print exec --no-startup-id scrot -s 'snip_%Y%m%d_%H%M%S.png' -e 'mv $f ~/screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`' 
 
 # SETTING FRAME COLORS:
 # colors defined at the top of script
@@ -293,6 +298,8 @@ bar {
 
 # WINDOW PROPERTIES / SETTINGS
 for_window [window_role="About"] floating enable
-for_window [class="Simplicity Studio \342\204\242"] floating enable
+for_window [title="Simplicity Studio \342\204\242"] floating enable
 for_window [title="^zoom$" class="[zoom]*"] floating enable
+for_window [title="Firefox"] border pixel 0
+for_window [title="Rocket League (64-bit, DX11, Cooked)"] floating enable
 

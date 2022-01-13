@@ -1,5 +1,0 @@
-!#/bin/bash
-input_files="C1M3V*.pdf"
-output_filename="merged.pdf"
-cmdstr="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=${output_filename} ${input_files}"
-echo $cmdstr
