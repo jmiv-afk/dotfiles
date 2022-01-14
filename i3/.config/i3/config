@@ -303,3 +303,4 @@ for_window [title="^zoom$" class="[zoom]*"] floating enable
 for_window [title="Firefox"] border pixel 0
 for_window [title="Rocket League (64-bit, DX11, Cooked)"] floating enable
 
+assign [class="Steam"] 8
