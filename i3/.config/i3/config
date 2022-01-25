@@ -47,10 +47,6 @@ set $mod Mod4
 #exec_always xinput set-prop "Corsair Corsair Gaming HARPOON RGB Mouse Mouse" "libinput Accel Speed" -0.99
  exec_always xinput set-prop "pointer:Logitech G Pro " "libinput Accel Speed" -0.5
 
-# FLOATING WINDOWS
-floating_minimum_size -1 x 500
-floating_maximum_size -1 x 500
-
 # FEH: Background image - this can be changed permanently by executing:
 #	the hidden file ~/.fehbg will keep the filepath for use later
 #	and MONITOR SETTINGS:
