@@ -7,6 +7,7 @@ env:
 
 window:
   dynamic_title: true
+  opacity: 0.93
   gtk_theme_variant: Dark
 
 scrolling:
@@ -143,9 +144,6 @@ colors:
   #selection:
   #  text: CellBackground
   #  background: CellForeground
-
-# Background opacity
-background_opacity: 0.93
 
 #selection:
   # This string contains all characters that are used as separators for
