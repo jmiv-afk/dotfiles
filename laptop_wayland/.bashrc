@@ -25,5 +25,3 @@ alias vim="nvim"
 alias vi="nvim"
 alias rm="echo 'This is not the command you are looking for'; false"
 alias ssh='TERM=xterm-256color ssh -x'
-
-neofetch
