@@ -1,5 +1,4 @@
 " .VIMRC vim Configuration
-" Plugins will be downloaded under the specified directory.
 
 " use the OS clipboard by default
 set clipboard=unnamedplus
@@ -7,7 +6,6 @@ set clipboard=unnamedplus
 " enable syntax highlighting
 "syntax on
 
-nmap <F8> :TagbarToggle<CR>
 if has('mouse')
   set mouse=a
 endif
