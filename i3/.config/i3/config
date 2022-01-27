@@ -55,7 +55,7 @@ set $right_monitor DP-2
 exec_always xrandr --output $left_monitor --rotate left --left-of $right_monitor --output DP-2 --rotate normal  
 exec_always sh ~/.fehbg
 # Picom (for transparency)
-exec_always --no-startup-id picom &
+exec_always --no-startup-id picom -b &
 
 # FONTS: Specifies font for window titles and statusbar
 # 	(statusbar font can be specified in the bar{} section below)
@@ -201,16 +201,17 @@ set $ws08 "8"
 set $ws09 "9"
 set $ws10 "10"
 
-# set which workspaces display on which screens
-workspace $ws01 output primary 
-workspace $ws02 output primary 
-workspace $ws03 output primary
-workspace $ws04 output primary  
-workspace $ws05 output secondary 
-workspace $ws06 output secondary
-workspace $ws07 output secondary
-workspace $ws08 output secondary
-workspace $ws09 output secondary
+# set which workspaces display on which monitors
+workspace $ws01 output $left_monitor
+workspace $ws02 output $left_monitor
+workspace $ws03 output $left_monitor
+workspace $ws04 output $left_monitor
+workspace $ws05 output $right_monitor 
+workspace $ws06 output $right_monitor
+workspace $ws07 output $right_monitor
+workspace $ws08 output $right_monitor
+workspace $ws09 output $right_monitor
+workspace $ws10 output $right_monitor
 
 
 # switch to workspace
@@ -300,3 +301,5 @@ for_window [title="Firefox"] border pixel 0
 for_window [title="Rocket League (64-bit, DX11, Cooked)"] floating enable
 
 assign [class="Steam"] 8
+
+
