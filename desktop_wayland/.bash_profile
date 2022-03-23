@@ -6,7 +6,7 @@
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 #export WLR_DRM_NO_MODIFIERS=1 
-#export WLR_NO_HARDWARE_CURSORS=1
+export WLR_NO_HARDWARE_CURSORS=1
 
 # for vlc to work with qt5
 export QT_QPA_PLATFORM=wayland

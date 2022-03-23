@@ -10,11 +10,27 @@ if has('nvim')
   " Declare the list of plugins.
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'windwp/nvim-autopairs'
+  "Plug 'neovim/nvim-lspconfig'
 
   " List ends here. Plugins become visible to Vim after this call.
   call plug#end()
 
 lua << EOF
+
+--[[
+require'lspconfig'.clangd.setup{} 
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      virtual_text = false,
+      signs = false,
+      update_in_insert = false,
+      underline = false,
+    }
+  )
+
+]]
 
 require('nvim-autopairs').setup({
   enable_check_bracket_line = false
