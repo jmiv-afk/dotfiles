@@ -81,7 +81,6 @@ exec --no-startup-id nm-applet --sm-disable
 #exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
 
 # VOLUME COMMANDS: 
-# ===> note: pavucontrol (GUI) can be run via rofi to handle volume controls
 exec --no-startup-id exec "/usr/bin/pulseaudio --start"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%

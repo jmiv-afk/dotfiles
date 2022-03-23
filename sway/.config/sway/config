@@ -6,12 +6,12 @@
 set $mod Mod4
 set $term alacritty
 set $menu wofi --show drun -i 
-set $bg_left ~/photos/backgrounds/jmaple.jpg
-set $bg_right ~/photos/backgrounds/nepalmountains.jpg 
+set $bg_left ~/pictures/backgrounds/minimalist_mountains.jpg
+set $bg_right ~/pictures/backgrounds/leviathan.png 
 set $save_screenshot grim -g ~/photos/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png
 set $save_screenclip slurp | grim -g - ~/photos/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png 
 set $clip_screenclip exec grim -g "$(slurp)" - | wl-copy 
-set $lock swaylock -f -e --image ~/photos/backgrounds/nepalmountains.jpg 
+set $lock swaylock -f -e --image $bg_right 
 
 # Home row direction keys, like vim
 set $left h
