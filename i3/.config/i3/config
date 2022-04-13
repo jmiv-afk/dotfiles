@@ -80,6 +80,9 @@ exec --no-startup-id nm-applet --sm-disable
 # (old laptop, pre-sway, cannot locate script) MONITOR COMMANDS:
 #exec_always --no-startup-id ~/.screenlayout/no_monitor.sh
 
+# UDISKIE automounter (with tray)
+exec --no-startup-id udiskie --tray --no-notify --automount 
+
 # VOLUME COMMANDS: 
 exec --no-startup-id exec "/usr/bin/pulseaudio --start"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
