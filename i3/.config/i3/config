@@ -114,7 +114,7 @@ bindsym $mod+Escape exec i3lock -c 000000
 
 # ROFI: A program launcher (instead of dmenu)
 # and COMPTON: a Xorg compositor for i3
-bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -bash  -ic "{cmd} && read"'
+bindsym $mod+d exec --no-startup-id rofi -show drun 
 
 # SCREENSHOTS (using scrot and xclip):   
 # Focused window screenshot
