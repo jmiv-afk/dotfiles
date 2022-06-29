@@ -5,11 +5,11 @@
 ### Variables
 set $mod Mod4
 set $term alacritty
-set $menu wofi --show drun -i 
-set $bg_left ~/pictures/backgrounds/minimalist_mountains.jpg
-set $bg_right ~/pictures/backgrounds/leviathan.png 
-set $save_screenshot grim -g ~/photos/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png
-set $save_screenclip slurp | grim -g - ~/photos/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png 
+set $menu wofi --show drun,run -i 
+set $bg_left ~/pictures/backgrounds/circuit.jpg
+set $bg_right ~/pictures/backgrounds/circuit.jpg 
+set $save_screenshot grim -g ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png
+set $save_screenclip slurp | grim -g - ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png 
 set $clip_screenclip exec grim -g "$(slurp)" - | wl-copy 
 set $lock swaylock -f -e --image $bg_right 
 
@@ -23,15 +23,16 @@ set $right l
 exec --no-startup-id {
   swaymsg "workspace 1; exec $term"
 }
-for_window [app_id="zoom"] floating enable
-for_window [class="Simplicity Studio™"] floating enable
 
-### Output configuration
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 bg $bg_right fill
-output "Goldstar Company Ltd 27GL850 005NTZN7V717" bg $bg_right fill
-output "Dell Inc. DELL U2715H H7YCC6B806JS" bg $bg_left fill
-exec_always kanshi
+## Output configuration
+# You can get the names of your outputs by running: swaymsg -t get_outputs 
+exec_always pkill kanshi; exec kanshi
+output * background $bg_right fill
+
+#output eDP-1 :
+#    fill scale 2.5
+#output HDMI-A-1 bg $bg_right fill scale 2 
+#output "Dell Inc. DELL U2715H H7YCC6B806JS" bg $bg_left fill
 
 ### BACKLIGHT commands
 bindsym XF86MonBrightnessUp exec --no-startup-id /home/jmiv/bin/jm_backlight/bright_up.sh
@@ -46,11 +47,11 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 ### Screenshots/screenclips
-bindsym $mod+Print exec $clip_screenclip
-bindsym $mod+Shift+Print exec $save_screenclip
-bindsym $mod+Alt+Print exec $save_screenshot
+#bindsym $mod+Shift+s exec $clip_screenclip
+bindsym $mod+Shift+S exec $clip_screenclip
+#bindsym $mod+Alt+Print exec $save_screenshot
 
-### Mouse settings
+# Mouse settings
 input "1133:16505:Logitech_G_Pro" { 
 pointer_accel -0.7
 }
