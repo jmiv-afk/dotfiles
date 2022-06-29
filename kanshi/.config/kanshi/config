@@ -1,0 +1,8 @@
+{
+    output eDP-1 enable mode 3840x2160@60.000Hz position 0,0 scale 2.5
+}
+
+{
+    output eDP-1 enable mode 3840x2160@60.000Hz position 0,0 scale 2.5
+    output "Samsung Electric Company U28E510 HTPJ404775" enable mode 3840x2160@30Hz position 1536,0 scale 2.0
+}
