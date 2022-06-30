@@ -1,6 +1,8 @@
 [user]
-	email = jake@vutility.com
-	name = jake-vu
+    #email = jake@vutility.com
+    #name = jake-vu
+    email = jami1063@colorado.edu
+    name = jmichael16
 [core]
 	editor = nvim
 [init]

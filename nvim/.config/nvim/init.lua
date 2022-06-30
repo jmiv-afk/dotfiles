@@ -15,14 +15,14 @@ Plug('nvim-treesitter/nvim-treesitter', {
     })
 Plug('windwp/nvim-autopairs')
 Plug('ludovicchabant/vim-gutentags')
-Plug('neovim/nvim-lspconfig')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-buffer')
-Plug('hrsh7th/nvim-cmp')
+--Plug('neovim/nvim-lspconfig')
+--Plug('hrsh7th/cmp-nvim-lsp')
+--Plug('hrsh7th/cmp-buffer')
+--Plug('hrsh7th/nvim-cmp')
 -- end of plugin list
 vim.call('plug#end')
 
-require('lsp_config')
+--require('lsp_config')
 require('nvim-autopairs').setup({
   enable_check_bracket_line = false
 })
