@@ -7,7 +7,7 @@ env:
 
 window:
   dynamic_title: true
-  opacity: 1.0
+  opacity: .93
   gtk_theme_variant: Dark
 
 scrolling:
