@@ -17,9 +17,10 @@ export BROWSER="firefox"
 export QT_QPA_PLATFORM="wayland"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export MOZ_ENABLE_WAYLAND=1
-
+export WLR_NO_HARDWARE_CURSORS=1
 
 source ~/.vutility_secure
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ "$(tty)" = "/dev/tty1" ]; then
