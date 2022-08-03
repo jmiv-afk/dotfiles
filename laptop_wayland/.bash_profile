@@ -7,14 +7,21 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 
-# Application enviornment variables
+# wlroots specific
+#export GBM\_BACKEND=nvidia-drm  
+#export \_\_GLX\_VENDOR\_LIBRARY\_NAME=nvidia  
+#export WLR\_NO\_HARDWARE\_CURSORS=1  
+#export WLR\_DRM\_NO\_ATOMIC=1  
+
+# Application environment variables
 export QT_QPA_PLATFORM="wayland"
-export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export MOZ_ENABLE_WAYLAND=1
+
 
 source ~/.vutility_secure
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
+	exec sway 
 fi
