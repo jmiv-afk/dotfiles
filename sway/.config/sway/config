@@ -6,8 +6,8 @@
 set $mod Mod4
 set $term alacritty
 set $menu wofi --show drun,run -i 
-set $bg_left ~/pictures/backgrounds/circuit.jpg
-set $bg_right ~/pictures/backgrounds/circuit.jpg 
+set $bg_left ~/pictures/backgrounds/james_webb_cosmic_cliffs.jpg
+set $bg_right ~/pictures/backgrounds/james_webb_cosmic_cliffs.jpg 
 set $save_screenshot grim -g ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png
 set $save_screenclip slurp | grim -g - ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png 
 set $clip_screenclip exec grim -g "$(slurp)" - | wl-copy 
@@ -47,7 +47,7 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 ### Screenshots/screenclips
-#bindsym $mod+Shift+s exec $clip_screenclip
+bindsym $mod+Alt+Shift+S exec $save_screenclip
 bindsym $mod+Shift+S exec $clip_screenclip
 #bindsym $mod+Alt+Print exec $save_screenshot
 
@@ -63,22 +63,22 @@ scroll_factor 0.5
 ### Input configuration
 ### Key bindings
 # Basics:
-#
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+q kill
-    bindsym $mod+d exec $menu 
-    floating_modifier $mod normal
-    # Reload config file
-    bindsym $mod+Shift+c reload
-    bindsym $mod+Escape exec $lock
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term -e ranger
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu 
+floating_modifier $mod normal
+# Reload config file
+bindsym $mod+Shift+c reload
+bindsym $mod+Escape exec $lock
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # Enable and set gaps
-    default_border pixel 2
-    gaps inner 4
-    gaps outer 2
-    #smart_gaps on
+# Enable and set gaps
+default_border pixel 2
+gaps inner 4
+gaps outer 2
+#smart_gaps on
 
 ### Idle configuration
 exec swayidle -w \
