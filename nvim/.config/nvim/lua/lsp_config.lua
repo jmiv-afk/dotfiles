@@ -50,7 +50,7 @@ cmp.setup({
     	sources = cmp.config.sources({
       		{ name = 'nvim_lsp' },
      		 -- { name = 'vsnip' }, -- For vsnip users.
-     		 { name = 'luasnip' }, -- For luasnip users.
+     		 -- { name = 'luasnip' }, -- For luasnip users.
 		 { name = 'crates' },
      		 -- { name = 'ultisnips' }, -- For ultisnips users.
      		 -- { name = 'snippy' }, -- For snippy users.
@@ -74,3 +74,22 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+
+-- disable virtual_text (inline) diagnostics and use floating window
+-- format the message such that it shows source, message and
+-- the error code. Show the message with <space>e
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = true,
+	float = {
+		border = "single",
+		format = function(diagnostic)
+			return string.format(
+				"%s (%s) [%s]",
+				diagnostic.message,
+				diagnostic.source,
+				diagnostic.code or diagnostic.user_data.lsp.code
+			)
+		end,
+	},
+})
