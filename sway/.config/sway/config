@@ -7,7 +7,7 @@ set $mod Mod4
 set $term alacritty
 set $menu wofi --show drun,run -i 
 set $bg_left ~/pictures/backgrounds/james_webb_cosmic_cliffs.jpg
-set $bg_right ~/pictures/backgrounds/james_webb_cosmic_cliffs.jpg 
+set $bg_right ~/pictures/backgrounds/james_webb_cosmic_cliffs_ultrawide.jpg 
 set $save_screenshot grim -g ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png
 set $save_screenclip slurp | grim -g - ~/screenshots/scrn-$(date +"%Y-%m-%d_%H-%M-%S").png 
 set $clip_screenclip exec grim -g "$(slurp)" - | wl-copy 
@@ -85,8 +85,8 @@ exec swayidle -w \
     timeout 600 '$lock' \
     timeout 660 'swaymsg "output * dpms off"' \
     timeout 1800 'systemctl suspend' \
-        resume 'swaymsg "output * dpms on"' \
-    before-sleep 'sleep 3 && $lock'
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
 
 # Moving around:
     # Move your focus around

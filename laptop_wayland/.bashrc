@@ -19,8 +19,8 @@ export set PATH=$PATH:/home/jmichael/bin
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # aliases
-alias python='python3'
+#alias python='python3'
 alias vim="nvim"
 alias vi="nvim"
 alias rm="echo 'This is not the command you are looking for'; false"
-alias ssh='TERM=xterm-256color ssh -x'
+#alias ssh='TERM=xterm-256color ssh -x'

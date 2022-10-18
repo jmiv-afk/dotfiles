@@ -79,7 +79,7 @@ end
 -- format the message such that it shows source, message and
 -- the error code. Show the message with <space>e
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	signs = true,
 	float = {
 		border = "single",
