@@ -50,7 +50,7 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 ### Screenshots/screenclips
-#bindsym $mod+Shift+s exec $clip_screenclip
+bindsym $mod+Alt+Shift+S exec $save_screenclip
 bindsym $mod+Shift+S exec $clip_screenclip
 #bindsym $mod+Alt+Print exec $save_screenshot
 
@@ -66,30 +66,30 @@ input "1267:32:Elan_TrackPoint" {
 ### Input configuration
 ### Key bindings
 # Basics:
-#
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+q kill
-    bindsym $mod+d exec $menu 
-    floating_modifier $mod normal
-    # Reload config file
-    bindsym $mod+Shift+c reload
-    bindsym $mod+Escape exec $lock
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term -e ranger
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu 
+floating_modifier $mod normal
+# Reload config file
+bindsym $mod+Shift+c reload
+bindsym $mod+Escape exec $lock
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # Enable and set gaps
-    default_border pixel 2
-    gaps inner 4
-    gaps outer 2
-    #smart_gaps on
+# Enable and set gaps
+default_border pixel 2
+gaps inner 4
+gaps outer 2
+#smart_gaps on
 
 ### Idle configuration
 exec swayidle -w \
     timeout 800 '$lock' \
     timeout 1000 'swaymsg "output * dpms off"' \
     timeout 1800 'systemctl suspend' \
-        resume 'swaymsg "output * dpms on"' \
-    before-sleep 'sleep 3 && $lock'
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
 
 # Moving around:
     # Move your focus around
