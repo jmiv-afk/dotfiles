@@ -7,8 +7,8 @@ env:
 
 window:
   dynamic_title: true
-  opacity: .93
-  gtk_theme_variant: Dark
+  opacity: .9
+  decorations_theme_variant: Dark
 
 scrolling:
   history: 10000
@@ -17,7 +17,7 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: 'Mono'
+    family: 'MesloLGS NF'
     style: Regular
 
   # Bold font face
@@ -173,8 +173,8 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
+shell:
+  program: /usr/bin/zsh
 #  args:
 #    - --login
 
