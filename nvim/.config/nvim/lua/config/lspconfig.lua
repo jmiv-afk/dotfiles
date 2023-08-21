@@ -58,6 +58,7 @@ local servers = {
   cmake = {},
   jsonls = {},
   bashls = {},
+  csharp_ls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.guicursor = ""
 vim.opt.hlsearch = false
 vim.opt.nu = true
@@ -17,3 +20,5 @@ vim.opt.timeoutlen = 300
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "100"
 vim.opt.completeopt = 'menuone,noselect'
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
