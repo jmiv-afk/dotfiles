@@ -1,0 +1,17 @@
+[[profile]]
+name = "desktop"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+    [[profile.output]]
+    match = "DP-1"
+    enable = true
+    mode = { width = 2560, height = 1440, refresh = 144}
+    position = { x = 1200, y = 550 }
+    scale = 1.2
+
+    [[profile.output]]
+    match = "DP-4"
+    enable = true
+    mode = { width = 2560, height = 1440, refresh = 60}
+    position = { x = 0, y = 0 }
+    transform = "90"
+    scale = 1.2 
