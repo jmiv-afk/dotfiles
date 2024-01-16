@@ -1,5 +1,4 @@
 require("jmiv.set")
-require("jmiv.remap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -14,7 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require('lazy').setup("plugins")
+require('config.harpoon')
 require('config.telescope')
 require('config.treesitter')
 require('config.lspconfig')
+
+-- 
+require("jmiv.remap")
