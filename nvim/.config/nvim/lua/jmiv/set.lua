@@ -22,4 +22,3 @@ vim.opt.colorcolumn = "100"
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.autochdir = true
